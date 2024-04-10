@@ -29,6 +29,7 @@ main {
     text-align: center;
     transform: translate(-50%, -50%);
     border-radius: 30px;
+    
 }
 
 main h1 {
@@ -62,6 +63,7 @@ input.button {
     border-radius: 10px;
     border-width: 0;
     margin-bottom: 30px;
+    
 }
 
 section#forgot {
