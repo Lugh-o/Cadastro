@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+:root {
+    --cor1: #ABF0FF;
+    --cor2: #EEDEDE;
+    --cor3: #0A70CE;
+}
+
+main {
+    height: 515px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+  
+.container input {
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-width: 2px;
+    border-color: black;
+
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 10px;
+    top: 3px;
+    width: 8px;
+    height: 15px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
