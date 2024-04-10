@@ -2,7 +2,6 @@
 
 main {
     height: 515px;
-    
 }
 
 .container {
@@ -10,7 +9,8 @@ main {
     position: relative;
     margin-left: 40px;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: 5px;
     padding-top: 6px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -22,7 +22,6 @@ main {
 .container input {
     height: 0;
     width: 0;
-    
 }
 
 .checkmark {
@@ -56,4 +55,8 @@ main {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+input.button:disabled {
+    background-color: rgba(0, 0, 0, .40);
 }
