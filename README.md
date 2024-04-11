@@ -9,7 +9,7 @@ Projeto Fullstack de um site com login e cadastro. O projeto está contido em um
 **Back-end:** PHP, MySQL
 
 
-## Autores
+## Autor
 
 - [@Lugh-o](https://github.com/Lugh-o)
 
