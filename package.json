@@ -1,0 +1,24 @@
+{
+  "name": "cadastro",
+  "version": "0.0.1",
+  "description": "Projeto de login e cadastro para estudo de HTML, CSS, MySQL e PHP",
+  "main": "scripts/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lugh-o/Cadastro.git"
+  },
+  "keywords": [
+    "login",
+    "fullstack",
+    "signin"
+  ],
+  "author": "Lucas Falcão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lugh-o/Cadastro/issues"
+  },
+  "homepage": "https://github.com/Lugh-o/Cadastro#readme"
+}

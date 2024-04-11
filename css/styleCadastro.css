@@ -1,4 +1,11 @@
 @charset "UTF-8";
+@import 'styleTooltip.css';
+
+:root {
+    --cor1: #ABF0FF;
+    --cor2: #EEDEDE;
+    --cor3: #0A70CE;
+}
 
 main {
     height: 515px;
