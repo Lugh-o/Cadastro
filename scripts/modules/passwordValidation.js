@@ -47,22 +47,29 @@ export default function passwordValidation(){
     }
 
     function updateTip() {
-            const list = document.getElementById('ilist');
-            list.innerHTML = "";
-            printArray = [];
+        const list = document.getElementById('ilist');
+        list.innerHTML = "";
+        printArray = [];
 
-            let j = 0;
-            for(let i = 0; i < tooltipArray.length; i++){
-                if(tooltipArray[i][1] === false){
-                    printArray[j] = tooltipArray[i][0];
-                    j++
-                }
+        let j = 0;
+        for(let i = 0; i < tooltipArray.length; i++){
+            if(tooltipArray[i][1] === false){
+                printArray[j] = tooltipArray[i][0];
+                j++
             }
-            for(let i = 0; i < printArray.length; i++){
-                let listItem = document.createElement('li');
-                listItem.innerHTML = printArray[i]
-                list.appendChild(listItem);
-            }
+        }
+        for(let i = 0; i < printArray.length; i++){
+            let listItem = document.createElement('li');
+            listItem.innerHTML = printArray[i]
+            list.appendChild(listItem);
+        }
+        let tip = document.getElementById('ipasstip');
+
+        if(tooltipArray.map(x => x[1]).every(Boolean)){
+            tip.style.display = "none";
+        } else {
+            tip.style.display = "block";
+        }
     }
 
     const deleteTip = {

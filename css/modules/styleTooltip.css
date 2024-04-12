@@ -1,8 +1,6 @@
 .tooltip {
     position: absolute;
-    top: 260px;
     left: 200px;
-    /* transform: translateY(-55%); */
     background-color: #EEDEDE;
     color: black;
     padding: .5rem;
@@ -17,4 +15,16 @@
 
 .tooltip ul {
     padding-left: 15px;
+}
+
+.tooltip#iemailtip {
+    top: 145px;
+}
+
+.tooltip#ipasstip {
+    top: 260px;
+}
+
+.tooltip#iconftip {
+    top: 315px;
 }

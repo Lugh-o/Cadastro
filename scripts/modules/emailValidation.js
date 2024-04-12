@@ -1,6 +1,11 @@
 export default function emailValidation(){
     const emailInput = document.getElementById('iemail');
-    emailInput.addEventListener('input', () => {
+
+    emailInput.addEventListener('input', validateInput);
+    emailInput.addEventListener('focus', showTip);
+    emailInput.addEventListener('input', updateTip);
+
+    function validateInput() {
         const regex = /^[a-zA-Z0-9._%\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,255}/;
         let email = emailInput.value;
         
@@ -13,5 +18,43 @@ export default function emailValidation(){
             emailInput.setCustomValidity("Insira um endereço de email válido");
             emailInput.style.borderColor = "red";
         }
-    });
+    }
+
+    function showTip(){
+        const tooltipBox = createTooltipBox(this);
+        deleteTip.tooltipBox = tooltipBox;
+        deleteTip.element = this;
+        updateTip();
+        this.addEventListener('blur', deleteTip);
+    }
+
+    function updateTip(){
+        const tip = document.getElementById('iemailtip')
+        if(emailInput.checkValidity()){
+            tip.style.display = "none";
+        } else {
+            tip.style.display = "block";
+        }
+    }
+
+
+    const deleteTip = {
+        handleEvent(){
+            this.tooltipBox.remove();
+            this.element.removeEventListener('blur', deleteTip);
+        }
+    }
+
+    function createTooltipBox(){
+        const tooltipBox = document.createElement('div');
+        const form = document.getElementById('iform');
+
+        tooltipBox.classList.add('tooltip');
+        tooltipBox.id = "iemailtip";
+        tooltipBox.innerText = "Insira um endereço válido";
+        form.appendChild(tooltipBox);
+        return tooltipBox
+    }
+
+
 }

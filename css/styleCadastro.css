@@ -1,11 +1,5 @@
-@charset "UTF-8";
-@import 'styleTooltip.css';
-
-:root {
-    --cor1: #ABF0FF;
-    --cor2: #EEDEDE;
-    --cor3: #0A70CE;
-}
+@import "styleMain.css";
+@import "modules/styleTooltip.css";
 
 main {
     height: 515px;
@@ -14,18 +8,11 @@ main {
 .container {
     display: block;
     position: relative;
-    margin-left: 40px;
-    margin-right: 20px;
-    margin-bottom: 25px;
-    margin-top: 5px;
+    margin: 5px 20px 25px 40px;
     padding-top: 6px;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
-  
+
 .container input {
     height: 0;
     width: 0;
