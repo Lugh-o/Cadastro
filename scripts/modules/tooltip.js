@@ -1,10 +1,8 @@
 export default function tooltip(){
-    const tooltips = document.querySelectorAll('[data-tooltip]');
+    const tooltips = document.querySelector('[data-tooltip]');
 
-    tooltips.forEach((item) => {
-        item.addEventListener('mouseover', onMouseOver);
-    });
-
+    tooltips.addEventListener('mouseover', onMouseOver);
+    
     function onMouseOver() {
         const btn = document.getElementById('isubmit');
         if(btn.disabled){
