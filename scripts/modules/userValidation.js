@@ -14,7 +14,5 @@ export default function userValidation() {
             userInput.setCustomValidity("Insira um nome de usuário válido");
             userInput.style.borderColor = "red";
         }
-
-
     });
 }

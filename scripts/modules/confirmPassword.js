@@ -1,3 +1,5 @@
+import {showTip, updateTip} from "./defaultTooltip.js";
+
 export default function confirmPassword(){
     const passInput = document.getElementById('ipass');
     const confInput = document.getElementById('iconfpass');
@@ -18,48 +20,8 @@ export default function confirmPassword(){
             confInput.setCustomValidity("");
             confInput.style.borderColor = "green";
         } else {
-            confInput.setCustomValidity("As senhas não coincidem");
+            confInput.setCustomValidity("Invalid Value");
             confInput.style.borderColor = "red";
         }
     }
-
-    function showTip(){
-        const tooltipBox = createTooltipBox(this);
-        deleteTip.tooltipBox = tooltipBox;
-        deleteTip.element = this;
-        updateTip();
-        this.addEventListener('blur', deleteTip);
-    }
-
-    function updateTip(){
-        const tip = document.getElementById('iconftip')
-        if(confInput.checkValidity()){
-            tip.style.display = "none";
-        } else {
-            tip.style.display = "block";
-        }
-    }
-
-
-    const deleteTip = {
-        handleEvent(){
-            this.tooltipBox.remove();
-            this.element.removeEventListener('blur', deleteTip);
-        }
-    }
-
-    function createTooltipBox(){
-        const tooltipBox = document.createElement('div');
-        const form = document.getElementById('iform');
-
-        tooltipBox.classList.add('tooltip');
-        tooltipBox.id = "iconftip";
-        tooltipBox.innerText = "As senhas não coincidem";
-        form.appendChild(tooltipBox);
-        return tooltipBox
-    }
-
-
-
-
 }

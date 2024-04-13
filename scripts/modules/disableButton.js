@@ -10,42 +10,30 @@ export default function disableButton(){
     form.addEventListener('input', () => {
         let validation = passInput.checkValidity() && confInput.checkValidity() && emailInput.checkValidity() && userInput.checkValidity() && termsInput.checked;
 
-        if(validation) {
-            btn.disabled = false;
-        } else {
-            btn.disabled = true;
-        }
+        btn.disabled = validation ? false : true;
     });
 
-    btn.addEventListener('mouseover', showTooltip);
+    btn.addEventListener('mouseover', showTip);
 
-    function showTooltip() {
-        const btn = document.getElementById('isubmit');
+    function showTip() {
         if(btn.disabled){
-            const tooltipBox = createTooltipBox(this);
-            let btnPos = btn.getBoundingClientRect();
-            tooltipBox.style.top = btnPos.top - 2 + "px";
-            tooltipBox.style.left = btnPos.left + 130 + "px";
-    
-            onMouseLeave.tooltipBox = tooltipBox;
-            onMouseLeave.element = this;
-            this.addEventListener('mouseleave', onMouseLeave);
+            createTooltipBox();
+            this.addEventListener('mouseleave', deleteTip);
         }
     }
 
-    const onMouseLeave = {
-        handleEvent(){
-            this.tooltipBox.remove();
-            this.element.removeEventListener('mouseleave', onMouseLeave);
-        }
+    function deleteTip() {
+        document.getElementById('ibtntip').remove();
+        this.removeEventListener('mouseleave', deleteTip);
     }
 
     function createTooltipBox(){
+        const form = document.getElementById('iform');
         const tooltipBox = document.createElement('div');
-        tooltipBox.classList.add('tooltip');
-        tooltipBox.innerText = "Todos os inputs devem ser válidos para continuar";
-        document.body.appendChild(tooltipBox);
-        return tooltipBox
-    }
 
+        tooltipBox.classList.add('tooltip');
+        tooltipBox.id = 'ibtntip';
+        tooltipBox.innerText = "Todos os inputs devem ser válidos para continuar";
+        form.appendChild(tooltipBox);
+    }
 }

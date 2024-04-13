@@ -1,3 +1,5 @@
+import {showTip, updateTip} from "./defaultTooltip.js";
+
 export default function emailValidation(){
     const emailInput = document.getElementById('iemail');
 
@@ -10,7 +12,7 @@ export default function emailValidation(){
         let email = emailInput.value;
         
         if(email.length === 0){
-            passInput.style.borderColor = "#a59a9a";
+            emailInput.style.borderColor = "#a59a9a";
         } else if(regex.test(email)){
             emailInput.setCustomValidity("");
             emailInput.style.borderColor = "green";
@@ -19,42 +21,4 @@ export default function emailValidation(){
             emailInput.style.borderColor = "red";
         }
     }
-
-    function showTip(){
-        const tooltipBox = createTooltipBox(this);
-        deleteTip.tooltipBox = tooltipBox;
-        deleteTip.element = this;
-        updateTip();
-        this.addEventListener('blur', deleteTip);
-    }
-
-    function updateTip(){
-        const tip = document.getElementById('iemailtip')
-        if(emailInput.checkValidity()){
-            tip.style.display = "none";
-        } else {
-            tip.style.display = "block";
-        }
-    }
-
-
-    const deleteTip = {
-        handleEvent(){
-            this.tooltipBox.remove();
-            this.element.removeEventListener('blur', deleteTip);
-        }
-    }
-
-    function createTooltipBox(){
-        const tooltipBox = document.createElement('div');
-        const form = document.getElementById('iform');
-
-        tooltipBox.classList.add('tooltip');
-        tooltipBox.id = "iemailtip";
-        tooltipBox.innerText = "Insira um endereço válido";
-        form.appendChild(tooltipBox);
-        return tooltipBox
-    }
-
-
 }

@@ -1,5 +1,4 @@
 export default function passwordValidation(){
-    const passInput = document.getElementById('ipass');
     let tooltipArray = [
         ["Insira pelo menos uma letra minúscula", false],
         ["Insira pelo menos uma letra maiúscula", false],
@@ -8,7 +7,8 @@ export default function passwordValidation(){
         ["A senha deve conter no mínimo 8 caracteres", false]
     ];
     let printArray = [];
-
+    
+    const passInput = document.getElementById('ipass');
     passInput.addEventListener('input', validateInput);
     passInput.addEventListener('focus', showTip);
     passInput.addEventListener('input', updateTip);
@@ -28,6 +28,7 @@ export default function passwordValidation(){
         tooltipArray[4][1] = lengthRegex.test(password) ? true : false;
 
         if(password.length === 0){
+            passInput.setCustomValidity("Invalid Field");
             passInput.style.borderColor = "#a59a9a";
         } else if(tooltipArray.map(x => x[1]).every(Boolean)){
             passInput.setCustomValidity("");
@@ -38,10 +39,13 @@ export default function passwordValidation(){
         }
     }
 
+    function deleteTip() {
+        document.getElementById('ipasstip').remove();
+        this.removeEventListener('blur', deleteTip);
+    }
+
     function showTip(){
-        const tooltipBox = createTooltipBox(this);
-        deleteTip.tooltipBox = tooltipBox;
-        deleteTip.element = this;
+        createTooltipBox();
         updateTip();
         this.addEventListener('blur', deleteTip);
     }
@@ -63,33 +67,20 @@ export default function passwordValidation(){
             listItem.innerHTML = printArray[i]
             list.appendChild(listItem);
         }
-        let tip = document.getElementById('ipasstip');
 
-        if(tooltipArray.map(x => x[1]).every(Boolean)){
-            tip.style.display = "none";
-        } else {
-            tip.style.display = "block";
-        }
-    }
-
-    const deleteTip = {
-        handleEvent(){
-            this.tooltipBox.remove();
-            this.element.removeEventListener('blur', deleteTip);
-        }
+        const tip = document.getElementById('ipasstip');
+        tip.style.display = tooltipArray.map(x => x[1]).every(Boolean) ? "none" : "block";
     }
 
     function createTooltipBox(){
+        const form = document.getElementById('iform');
         const tooltipBox = document.createElement('div');
         const list = document.createElement("ul");
-        const form = document.getElementById('iform');
 
         list.id = "ilist";
         tooltipBox.classList.add('tooltip');
-        tooltipBox.id = "ipasstip";
+        tooltipBox.id = 'ipasstip';
         tooltipBox.appendChild(list);
         form.appendChild(tooltipBox);
-        return tooltipBox
     }
-
 }
