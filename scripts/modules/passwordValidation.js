@@ -1,10 +1,10 @@
 export default function passwordValidation(){
     let tooltipArray = [
-        ["Insira pelo menos uma letra minúscula", false],
-        ["Insira pelo menos uma letra maiúscula", false],
-        ["Insira pelo menos um caractere especial: \"@.#$!%*?&\"", false],
-        ["Insira pelo menos um número de 0 a 9", false],
-        ["A senha deve conter no mínimo 8 caracteres", false]
+        ["Insira pelo menos uma letra minúscula.", false],
+        ["Insira pelo menos uma letra maiúscula.", false],
+        ["Insira pelo menos um caractere especial: \"@.#$!%*?&\".", false],
+        ["Insira pelo menos um número de 0 a 9.", false],
+        ["A senha deve conter entre 8 e 255 caracteres.", false]
     ];
     let printArray = [];
     
@@ -12,6 +12,7 @@ export default function passwordValidation(){
     passInput.addEventListener('input', validateInput);
     passInput.addEventListener('focus', showTip);
     passInput.addEventListener('input', updateTip);
+    passInput.addEventListener('blur', deleteTip);
 
     function validateInput() {
         let password = passInput.value;
@@ -28,7 +29,6 @@ export default function passwordValidation(){
         tooltipArray[4][1] = lengthRegex.test(password) ? true : false;
 
         if(password.length === 0){
-            passInput.setCustomValidity("Invalid Field");
             passInput.style.borderColor = "#a59a9a";
         } else if(tooltipArray.map(x => x[1]).every(Boolean)){
             passInput.setCustomValidity("");
@@ -41,13 +41,11 @@ export default function passwordValidation(){
 
     function deleteTip() {
         document.getElementById('ipasstip').remove();
-        this.removeEventListener('blur', deleteTip);
     }
 
     function showTip(){
         createTooltipBox();
         updateTip();
-        this.addEventListener('blur', deleteTip);
     }
 
     function updateTip() {

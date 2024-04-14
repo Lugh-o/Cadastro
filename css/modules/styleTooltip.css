@@ -1,11 +1,11 @@
 .tooltip {
     position: absolute;
-    left: 200px;
+    left: 185px;
     background-color: #EEDEDE;
     color: black;
     padding: .5rem;
     font-size: 0.875rem;
-    width: 200px;
+    width: 215px;
     border-radius: 2px;
     text-align: left;
     border: 1px solid gray;

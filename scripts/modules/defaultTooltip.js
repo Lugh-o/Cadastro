@@ -10,11 +10,7 @@ export function showTip(){
 export function updateTip(){
     const tipId = element.getAttribute(['tooltipId']);
     const tip = document.getElementById(tipId)
-    if(element.checkValidity()){
-        tip.style.display = "none";
-    } else {
-        tip.style.display = "block";
-    }
+    tip.style.display = element.checkValidity()? "none" : "block";
 }
 
 export function deleteTip() {
