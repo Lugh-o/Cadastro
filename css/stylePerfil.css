@@ -1,6 +1,6 @@
 @import "styleMain.css";
 @import "modules/styleOverlay.css";
-
+@import "modules/styleTooltip.css";
 
 h1 {
     margin-top: 20px;
@@ -29,3 +29,10 @@ input#sair {
     margin-left: 25px;
 }
 
+.tooltip#ipasstip {
+    top: 210px;
+}
+
+.tooltip#iconftip {
+    top: 265px;
+}

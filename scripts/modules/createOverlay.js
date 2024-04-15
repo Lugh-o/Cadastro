@@ -22,8 +22,8 @@ export default function createOverlay(){
         form.method = "post";
         form.id = "iform";
 
-        insertInputField(form, "text", "inewUser", "novo usuário");
-        insertInputField(form, "password", "ipass", "senha");
+        insertInputField(form, "text", "newUser", "inewUser", "novo usuário");
+        insertInputField(form, "password", "pass", "ipass", "senha");
         insertButton(form, "submit", "isub", "Alterar");
 
         let exitBtn = insertButton(form, "button", "icancelar", "Cancelar");
@@ -47,9 +47,9 @@ export default function createOverlay(){
         form.method = "post";
         form.id = "iform";
 
-        insertInputField(form, "password", "iOldPass", "senha atual");
-        insertInputField(form, "password", "ipass", "nova senha");
-        insertInputField(form, "password", "iconfpass", "confirme a nova senha");
+        insertInputField(form, "password", "oldpass", "iOldPass", "senha atual");
+        insertInputField(form, "password", "pass", "ipass", "nova senha");
+        insertInputField(form, "password", "confpass", "iconfpass", "confirme a nova senha", "As senhas não coincidem.", "iconftip");
         insertButton(form, "submit", "isub", "Alterar");
         
         let exitBtn = insertButton(form, "button", "icancelar", "Cancelar");
@@ -57,9 +57,8 @@ export default function createOverlay(){
         
         overlay.appendChild(form);
         document.body.appendChild(overlay);
-        passwordValidation();
         confirmPassword();
-
+        passwordValidation();
     }
 
     function deleteOverlay(){
@@ -71,9 +70,13 @@ export default function createOverlay(){
         tint.remove();
     }
 
-    function insertInputField(element, type, id, placeholder){
+    function insertInputField(element, type, name, id, placeholder, tooltipText, tooltipId){
         let inputField = document.createElement('input');
         inputField.type = type;
+        inputField.name = name
+        inputField.setAttribute("tooltipText", tooltipText || "");
+        inputField.setAttribute("tooltipId", tooltipId || "");
+
         inputField.classList.add('text');
         inputField.id = id;
         inputField.placeholder = placeholder;
