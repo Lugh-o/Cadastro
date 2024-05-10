@@ -1,19 +1,15 @@
 # Página de Cadastro
 
-Projeto Fullstack de um site com login e cadastro. O projeto está contido em um Docker, e não utiliza nenhuma biblioteca externa.
+Projeto front de um site com login e cadastro. O projeto está contido em um Docker, e não utiliza nenhuma biblioteca externa.
 
 ## Stack utilizada
 
 **Front-end:** HTML, CSS, Javascript
 
-**Back-end:** PHP, MySQL
-
-
 ## Autor
 
 - [@Lugh-o](https://github.com/Lugh-o)
 
+## Conteúdo
 
-## Funcionalidades
-
-- Em desenvolvimento
+- É um site simples, com funcionalidades de validação de usuário, email e senha, com o intuito de estudar manipulação DOM com Javascript
